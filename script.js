@@ -1,6 +1,7 @@
 /* . p/clase  - # para id */
 const textArea = document.querySelector(".text-area");
 const mensajeEncriptado = document.querySelector(".msg-encriptado");
+const btnCopiar = document.querySelector(".btn-copiar");
 
 function encriptarTexto(stringEncriptado) {
     // Array multidimensional con las letras y sus equivalentes encriptados
@@ -53,6 +54,8 @@ function btnEncriptar() {
     textArea.value = '';
     // Eliminar la imagen de fondo
     mensajeEncriptado.classList.add("sin-imagen");
+    // mensajeEncriptado.style.backgroundImage = "none";
+    habilitarBtnCopiar();
 }
 
 function btnDesencriptar() {
@@ -62,6 +65,7 @@ function btnDesencriptar() {
     textArea.value = '';
     // Eliminar la imagen de fondo
     mensajeEncriptado.classList.add("sin-imagen");
+    habilitarBtnCopiar();
 }
 
 
@@ -79,6 +83,23 @@ document.querySelector(".btn-copiar").addEventListener("click", function () {
     textArea.focus();
 });
 
+
+// Función para deshabilitar el botón de copiar
+function deshabilitarBtnCopiar() {
+    btnCopiar.disabled = true;
+}
+
+// Función para habilitar el botón de copiar
+function habilitarBtnCopiar() {
+    btnCopiar.disabled = false;
+}
+
+
+// Establecer el foco en el textarea .text-area y deshabilitar el botón de copiar al cargar la página.
+window.addEventListener("load", function () {
+    textArea.focus();
+    deshabilitarBtnCopiar();
+});
 
 
 
