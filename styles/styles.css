@@ -78,6 +78,10 @@ section {
         width: 328px; /* Ancho por defecto */
     }
 
+    .section1 {
+        margin-left: 5rem;
+    }
+
     .btn-encriptar, .btn-desencriptar {
         width: 300px;
     }
@@ -138,6 +142,7 @@ section {
     /*margin-top: 0rem; */
     margin-bottom: 1.8rem;
     height: 79%;
+    margin-right: 5%
 }
 
 /* Estilos de enfoque para las áreas de texto */
