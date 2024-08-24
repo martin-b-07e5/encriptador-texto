@@ -86,3 +86,9 @@ window.addEventListener("load", function () {
     textArea.focus();
     deshabilitarBtnCopiar();
 });
+
+// Evita que se ingresen letras con acentos o caracteres especiales en el textarea
+textArea.addEventListener('input', function (event) {
+    this.value = this.value.replace(/[^a-z0-9\s]/g, '');
+});
+
