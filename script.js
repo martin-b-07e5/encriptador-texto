@@ -12,9 +12,18 @@ function encriptarTexto(stringEncriptado) {
     ];
     stringEncriptado = stringEncriptado.toLowerCase();
 
-    letrasEncriptadas.forEach(([letra, encriptado]) => {
+    // for (let i = 0; i < letrasEncriptadas.length; i++) {
+    //     const [letra, encriptado] = letrasEncriptadas[i];
+    //     stringEncriptado = stringEncriptado.replaceAll(letra, encriptado);
+    // }
+
+    // letrasEncriptadas.forEach(([letra, encriptado]) => {
+    //     stringEncriptado = stringEncriptado.replaceAll(letra, encriptado);
+    // });
+
+    for (const [letra, encriptado] of letrasEncriptadas) {
         stringEncriptado = stringEncriptado.replaceAll(letra, encriptado);
-    });
+    }
 
     return stringEncriptado;
 }
