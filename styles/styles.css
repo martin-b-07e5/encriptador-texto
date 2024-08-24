@@ -135,7 +135,7 @@ section {
     background-position: center;
     background-size: contain;
     color: var(--gray-400);
-    /*margin-top: 0rem;*/
+    /*margin-top: 0rem; */
     margin-bottom: 1.8rem;
     height: 79%;
 }
