@@ -1,14 +1,6 @@
+# directories
+.idea/
+
 # User-specific files
 *.rsuser
-
-# Mono auto generated files
 mono_crash.*
-
-# Chutzpah Test files
-_Chutzpah*
-
-# Web workbench (sass)
-.sass-cache/
-
-# Click-Once directory
-publish/

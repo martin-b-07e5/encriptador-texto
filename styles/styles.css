@@ -1,0 +1,142 @@
+/*font*/
+/*@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');*/
+
+/*variables*/
+:root {
+    --light-blue-100: #F3F5FC;
+    --light-blue-200: #EFF1FA;
+    --light-blue-300: #E9ECF8;
+    --light-blue-400: #AAB2D5;
+    --light-blue-500: #757FB2;
+    --dark-blue-100: #609ED4;
+    --dark-blue-200: #356EA9;
+    --dark-blue-300: #0A3871;
+    --dark-blue-400: #072B61;
+    --dark-blue-500: #052051;
+    --gray-100: #CED4DA;
+    --gray-200: #ADB5BD;
+    --gray-300: #868E96;
+    --gray-400: #495057;
+    --gray-500: #343A40;
+}
+
+/*end variables*/
+
+
+* {
+    background: var(--light-blue-100);
+    font-family: 'Inter', serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 150%;
+    color: var(--gray-400); /*text color*/
+}
+
+/*clase*/
+.logo {
+    padding: 2% 0 0 2%; /*top, right, bottom, left values - el último valor centra el header*/
+    margin-left: 15%;
+    width: 3%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2%; /*top, right, bottom, left values - el último valor centra el header*/
+    margin-left: 5rem;
+    /*border: 1px solid red;*/
+}
+
+
+.textarea {
+    padding: 1%;
+    border-radius: 1rem;
+    border: 0px solid;
+    color: var(--dark-blue-300);
+    text-transform: lowercase;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: var(--dark-blue-300);
+    padding-top: 0.2rem;
+    padding-left: 0.2rem;
+}
+
+.information {
+    padding: 1%;
+    color: var(--gray-400);
+    font-size: 1rem;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+    margin-top: 18px;
+    /*padding: 1%;*/
+    /*border-radius: 1rem;*/
+
+}
+
+.btn-encriptar {
+    color: white;
+    background-color: var(--dark-blue-300);
+    border: 1px solid var(--dark-blue-300);
+    border-radius: 1rem;
+    cursor: pointer;
+    height: 67px;
+    width: 336px;
+}
+
+.btn-desencriptar {
+    color: var(--dark-blue-300);
+    background-color: var(--light-blue-300);
+    border: 1px solid var(--dark-blue-300);
+    border-radius: 1rem;
+    cursor: pointer;
+    height: 67px;
+    width: 328px;
+    margin-left: 30px;
+}
+
+.btn-copiar {
+    color: var(--dark-blue-300);
+    background-color: white;
+    border: 1px solid var(--dark-blue-300);
+    border-radius: 1rem;
+    cursor: pointer;
+    height: 67px;
+    width: 328px;
+    /*margin-top: 402px;*/
+    /*margin-left: 108px;*/
+    /*position: absolute;*/
+}
+
+.msg-encriptado {
+    background-color: white;
+    background-image: url(../images/muneco.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 0 solid; /*none*/
+    border-radius: 1rem;
+    color: var(--gray-400);
+    margin-top: 1.25rem;
+    /*margin-left: 6.125em;*/
+    padding-left: 1.25rem;
+    height: 87%;
+    /*position: fixed;*/
+    /*width: 9rem;*/
+}
+
+.msg-encriptado:focus {
+    outline: none;
+}
+
+
+
