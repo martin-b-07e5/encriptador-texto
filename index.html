@@ -28,22 +28,25 @@
     <!--section 1 40%-->
     <section>
         <label>
-            <textarea class="textarea" cols="30" rows=10" placeholder="Ingrese el texto aquí"></textarea>
+            <textarea class="text-area" cols="30" rows=10" placeholder="Ingrese el texto aquí"></textarea>
         </label>
         <div>
-            <h5 class="information">❗Solo letras minúsculas y sin acentos</h5>
+            <h6 class="information">❗Solo letras minúsculas y sin acentos</h6>
         </div>
         <div class="botones">
-            <button class="btn-encriptar">Encriptar</button>
-            <button class="btn-desencriptar">Desencriptar</button>
+            <button class="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
+            <button class="btn-desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
         </div>
     </section>
 
 
     <!--section 2 40%-->
     <section>
-        <textarea class="msg-encriptado" cols="20" rows="10"></textarea>
-        <div class="botones">
+        <label>
+            <textarea class="msg-encriptado" cols="20" rows="10"></textarea>
+        </label>
+        <!--        <div class="botones">-->
+        <div>
             <button class="btn-copiar">Copiar</button>
         </div>
     </section>
@@ -56,7 +59,7 @@
 
 <!--footer 100%-->
 
-<!--<script src="script.js"></script>-->
+<script src="script.js"></script>
 
 </body>
 

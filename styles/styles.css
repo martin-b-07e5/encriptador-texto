@@ -30,12 +30,13 @@
     font-size: 1rem;
     line-height: 150%;
     color: var(--gray-400); /*text color*/
+    /*overflow-y: hidden;*/
 }
 
 /*clase*/
 .logo {
     padding: 2% 0 0 2%; /*top, right, bottom, left values - el último valor centra el header*/
-    margin-left: 15%;
+    margin-left: 10%;
     width: 3%;
 }
 
@@ -43,21 +44,50 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 2%; /*top, right, bottom, left values - el último valor centra el header*/
-    margin-left: 5rem;
+    padding: 1%; /*top, right, bottom, left values - el último valor centra el header*/
+    margin-left: 3rem;
     /*border: 1px solid red;*/
 }
 
 
-.textarea {
-    padding: 1%;
+.text-area {
     border-radius: 1rem;
     border: 0px solid;
     color: var(--dark-blue-300);
     text-transform: lowercase;
+    height: 400px;
+    padding: 1%;
 }
 
-.textarea:focus {
+.msg-encriptado {
+    background-color: white;
+    background-image: url(../images/muneco.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 0 solid; /*none*/
+    border-radius: 1rem;
+    color: var(--gray-400);
+    margin-top: 1.25rem;
+    /*margin-left: 6.125em;*/
+    /*padding-left: 1.25rem;*/
+    height: 84%;
+    width: 328px;
+    /*height: 944px;*/
+    /*width: 9rem;*/
+    /*position: fixed;*/
+}
+
+.sin-imagen {
+    background-image: none;
+}
+
+
+.text-area:focus {
+    outline: none;
+}
+
+.msg-encriptado:focus {
     outline: none;
 }
 
@@ -90,7 +120,7 @@ main {
     border-radius: 1rem;
     cursor: pointer;
     height: 67px;
-    width: 336px;
+    width: 328px;
 }
 
 .btn-desencriptar {
@@ -111,32 +141,13 @@ main {
     border-radius: 1rem;
     cursor: pointer;
     height: 67px;
-    width: 328px;
+    width: 336px;
     /*margin-top: 402px;*/
     /*margin-left: 108px;*/
     /*position: absolute;*/
 }
 
-.msg-encriptado {
-    background-color: white;
-    background-image: url(../images/muneco.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 0 solid; /*none*/
-    border-radius: 1rem;
-    color: var(--gray-400);
-    margin-top: 1.25rem;
-    /*margin-left: 6.125em;*/
-    padding-left: 1.25rem;
-    height: 87%;
-    /*position: fixed;*/
-    /*width: 9rem;*/
-}
 
-.msg-encriptado:focus {
-    outline: none;
-}
 
 
 
