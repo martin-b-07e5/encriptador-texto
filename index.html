@@ -28,14 +28,14 @@
     <!--section 1 40%-->
     <section>
         <label>
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese el texto aquí"></textarea>
+            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese el texto aquí" tabindex="1"></textarea>
         </label>
         <div>
             <h6 class="information">❗Solo letras minúsculas y sin acentos</h6>
         </div>
         <div class="botones">
-            <button class="btn-encriptar" onclick="btnEncriptar()">Encriptar</button>
-            <button class="btn-desencriptar" onclick="btnDesencriptar()">Desencriptar</button>
+            <button class="btn-encriptar" onclick="btnEncriptar()" tabindex="2">Encriptar</button>
+            <button class="btn-desencriptar" onclick="btnDesencriptar()" tabindex="3">Desencriptar</button>
         </div>
     </section>
 
@@ -43,11 +43,11 @@
     <!--section 2 40%-->
     <section>
         <label>
-            <textarea class="msg-encriptado" cols="20" rows="10"></textarea>
+            <textarea class="msg-encriptado" cols="20" rows="10" tabindex="4"></textarea>
         </label>
         <!--        <div class="botones">-->
-        <div>
-            <button class="btn-copiar">Copiar</button>
+        <div class="btn-copiar-container">
+            <button class="btn-copiar" tabindex="5">Copiar</button>
         </div>
     </section>
 

@@ -1,4 +1,4 @@
-/*font*/
+/* Importar font (descomentado si es necesario) */
 /*@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');*/
 
 /*variables*/
@@ -20,9 +20,8 @@
     --gray-500: #343A40;
 }
 
-/*end variables*/
 
-
+/* Estilos generales aplicables a todos los tamaños de pantalla */
 * {
     background: var(--light-blue-100);
     font-family: 'Inter', serif;
@@ -30,73 +29,123 @@
     font-size: 1rem;
     line-height: 150%;
     color: var(--gray-400); /*text color*/
-    /*overflow-y: hidden;*/
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho y alto del elemento */
 }
 
-/*clase*/
+
+/* Ajustes para el logo */
 .logo {
     padding: 2% 0 0 2%; /*top, right, bottom, left values - el último valor centra el header*/
-    margin-left: 10%;
-    width: 3%;
+    margin-left: 5%;
+    max-width: 10%; /* Limita el ancho máximo para que no sea demasiado grande */
 }
+
 
 main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 1%; /*top, right, bottom, left values - el último valor centra el header*/
-    margin-left: 3rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
     /*border: 1px solid red;*/
 }
 
+/* Secciones dentro de main */
+section {
+    flex: 1;
+    margin-left: 1rem;
+}
 
-.text-area {
+/* Estilos para pantallas grandes (PC) */
+@media (min-width: 1200px) {
+    .text-area, .msg-encriptado {
+        width: 328px; /* Ancho por defecto */
+    }
+
+    .btn-encriptar, .btn-desencriptar {
+        width: 350px;
+    }
+
+    .btn-copiar {
+        width: 330px;
+    }
+}
+
+/* Estilos para pantallas medianas (Ipad pro) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .text-area, .msg-encriptado {
+        width: 328px; /* Ancho por defecto */
+    }
+
+    .btn-encriptar, .btn-desencriptar {
+        width: 300px;
+    }
+
+    .btn-copiar {
+        width: 330px;
+    }
+}
+
+/* Estilos para pantallas pequeñas (iPhone y otros teléfonos) */
+@media (max-width: 767px) {
+    main {
+        flex-direction: column; /* Cambia la dirección del flex container a columna */
+        margin-left: 0;
+    }
+
+    section {
+        width: 100%; /* Asegura que la sección ocupe el 100% */
+    }
+
+    .text-area, .msg-encriptado {
+        width: 100%; /* Ancho del 100% en pantallas pequeñas */
+    }
+
+    .msg-encriptado {
+        height: auto; /* Ajustar la altura si es necesario */
+        margin-top: 30px;
+    }
+
+    .btn-encriptar, .btn-desencriptar, .btn-copiar {
+        width: 100%;
+    }
+}
+
+/* Estilo de las áreas de texto */
+.text-area, .msg-encriptado {
     border-radius: 1rem;
-    border: 0px solid;
+    border: 0 solid; /* none */
+}
+
+/* Estilo del área de texto */
+.text-area {
     color: var(--dark-blue-300);
     text-transform: lowercase;
     height: 400px;
     padding: 1%;
+    width: 100%;
 }
 
+/* Estilo del mensaje encriptado */
 .msg-encriptado {
     background-color: white;
     background-image: url(../images/muneco.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border: 0 solid; /*none*/
-    border-radius: 1rem;
     color: var(--gray-400);
-    margin-top: 1.25rem;
-    /*margin-left: 6.125em;*/
-    /*padding-left: 1.25rem;*/
-    height: 84%;
-    width: 328px;
-    /*height: 944px;*/
-    /*width: 9rem;*/
-    /*position: fixed;*/
+    /*margin-top: 0rem;*/
+    margin-bottom: 1.8rem;
+    height: 79%;
 }
 
-/*.sin-imagen {
-    background-image: none;
-}*/
-
-.btn-copiar:disabled {
-    background-color: var(--gray-200);
-    cursor: not-allowed;
-    opacity: 0.6;
+/* Estilos de enfoque para las áreas de texto */
+.text-area:focus, .msg-encriptado:focus {
+    outline: 1px dashed var(--dark-blue-300); /* Añade un borde azul alrededor del área de texto cuando está enfocado */
 }
 
-
-.text-area:focus {
-    outline: none;
-}
-
-.msg-encriptado:focus {
-    outline: none;
-}
-
+/* Estilo del placeholder */
 ::placeholder {
     color: var(--dark-blue-300);
     padding-top: 0.2rem;
@@ -104,56 +153,54 @@ main {
 }
 
 .information {
-    padding: 1%;
+    /*padding: 1%;*/
     color: var(--gray-400);
-    font-size: 1rem;
+    font-size: 0.8rem;
+    margin: 0;
 }
 
+/* Estilo del contenedor de botones */
 .botones {
     display: flex;
     flex-direction: row;
-    /*justify-content: space-around;*/
     margin-top: 18px;
-    /*padding: 1%;*/
-    /*border-radius: 1rem;*/
+}
 
+
+/* Estilo de los botones */
+.btn-encriptar, .btn-desencriptar {
+    border-radius: 1rem;
+    border: 1px solid var(--dark-blue-300);
+    cursor: pointer;
+    height: 67px;
+    width: 328px;
+}
+
+.btn-copiar {
+    border-radius: 1rem;
+    border: 1px solid var(--dark-blue-300);
+    cursor: pointer;
+    height: 67px;
 }
 
 .btn-encriptar {
     color: white;
     background-color: var(--dark-blue-300);
-    border: 1px solid var(--dark-blue-300);
-    border-radius: 1rem;
-    cursor: pointer;
-    height: 67px;
-    width: 328px;
 }
 
 .btn-desencriptar {
     color: var(--dark-blue-300);
     background-color: var(--light-blue-300);
-    border: 1px solid var(--dark-blue-300);
-    border-radius: 1rem;
-    cursor: pointer;
-    height: 67px;
-    width: 328px;
     margin-left: 30px;
 }
 
 .btn-copiar {
     color: var(--dark-blue-300);
     background-color: white;
-    border: 1px solid var(--dark-blue-300);
-    border-radius: 1rem;
-    cursor: pointer;
-    height: 67px;
-    width: 336px;
-    /*margin-top: 402px;*/
-    /*margin-left: 108px;*/
-    /*position: absolute;*/
 }
 
-
-
-
-
+.btn-copiar:disabled {
+    background-color: var(--gray-200);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
