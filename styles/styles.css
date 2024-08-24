@@ -78,8 +78,14 @@ main {
     /*position: fixed;*/
 }
 
-.sin-imagen {
+/*.sin-imagen {
     background-image: none;
+}*/
+
+.btn-copiar:disabled {
+    background-color: var(--gray-200);
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 

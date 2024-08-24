@@ -1,11 +1,9 @@
-/* . p/clase  - # para id */
 const textArea = document.querySelector(".text-area");
 const mensajeEncriptado = document.querySelector(".msg-encriptado");
 const btnCopiar = document.querySelector(".btn-copiar");
 
 function encriptarTexto(stringEncriptado) {
-    // Array multidimensional con las letras y sus equivalentes encriptados
-    let letrasEncriptadas = [
+    const letrasEncriptadas = [
         ['e', 'enter'],
         ['i', 'imes'],
         ['a', 'ai'],
@@ -14,21 +12,15 @@ function encriptarTexto(stringEncriptado) {
     ];
     stringEncriptado = stringEncriptado.toLowerCase();
 
-    // Recorrer el array multidimensional y reemplazar las letras
-    for (let i = 0; i < letrasEncriptadas.length; i++) {
-        // verificar que las letras están dentro del array
-        if (stringEncriptado.includes(letrasEncriptadas[i][0])) {
-            // Reemplazar la letra por su equivalente encriptado.  // replaceAll para que la expresión regular sea global y no se interrumpa en medio de una palabra
-            stringEncriptado = stringEncriptado.replaceAll(letrasEncriptadas[i][0], letrasEncriptadas[i][1]);
-        }
-    }
+    letrasEncriptadas.forEach(([letra, encriptado]) => {
+        stringEncriptado = stringEncriptado.replaceAll(letra, encriptado);
+    });
+
     return stringEncriptado;
 }
 
-
 function desencriptarTexto(stringDesencriptado) {
-    // Array multidimensional con las letras y sus equivalentes encriptados
-    let letrasDesencriptadas = [
+    const letrasDesencriptadas = [
         ['enter', 'e'],
         ['imes', 'i'],
         ['ai', 'a'],
@@ -37,69 +29,51 @@ function desencriptarTexto(stringDesencriptado) {
     ];
     stringDesencriptado = stringDesencriptado.toLowerCase();
 
-    // Recorrer el array multidimensional y reemplazar las letras
-    for (let i = 0; i < letrasDesencriptadas.length; i++) {
-        if (stringDesencriptado.includes(letrasDesencriptadas[i][0])) {
-            stringDesencriptado = stringDesencriptado.replaceAll(letrasDesencriptadas[i][0], letrasDesencriptadas[i][1]);
-        }
-    }
+    letrasDesencriptadas.forEach(([encriptado, letra]) => {
+        stringDesencriptado = stringDesencriptado.replaceAll(encriptado, letra);
+    });
+
     return stringDesencriptado;
 }
 
+function actualizarMensaje(resultado) {
+    mensajeEncriptado.value = resultado;
+    mensajeEncriptado.style.backgroundImage = "none";
+    habilitarBtnCopiar();
+    textArea.value = '';
+}
 
 function btnEncriptar() {
-    // Mostrar el resultado en la pantalla
-    mensajeEncriptado.value = encriptarTexto(textArea.value);
-    // limpiar el área de texto original
-    textArea.value = '';
-    // Eliminar la imagen de fondo
-    mensajeEncriptado.classList.add("sin-imagen");
-    // mensajeEncriptado.style.backgroundImage = "none";
-    habilitarBtnCopiar();
+    const resultado = encriptarTexto(textArea.value);
+    actualizarMensaje(resultado);
 }
 
 function btnDesencriptar() {
-    // Mostrar el resultado en la pantalla
-    mensajeEncriptado.value = desencriptarTexto(textArea.value);
-    // limpiar el área de texto original
-    textArea.value = '';
-    // Eliminar la imagen de fondo
-    mensajeEncriptado.classList.add("sin-imagen");
-    habilitarBtnCopiar();
+    const resultado = desencriptarTexto(textArea.value);
+    actualizarMensaje(resultado);
 }
 
-
-// Función para copiar texto
-document.querySelector(".btn-copiar").addEventListener("click", function () {
-    // Seleccionar el contenido del textarea
-    mensajeEncriptado.select();
-    // Copiar el texto al portapapeles
-    document.execCommand("copy");
-    // Resetear el contenido del textarea .msg-encriptado
-    mensajeEncriptado.value = '';
-    // Mostrar la imagen de fondo nuevamente
-    mensajeEncriptado.classList.remove("sin-imagen");
-    // Establecer el foco en el textarea .text-area
-    textArea.focus();
+btnCopiar.addEventListener("click", function () {
+    try {
+        mensajeEncriptado.select();
+        document.execCommand("copy");
+        mensajeEncriptado.value = '';
+        mensajeEncriptado.style.backgroundImage = "url(../images/muneco.png)";
+        textArea.focus();
+    } catch (error) {
+        console.error("No se pudo copiar el texto: ", error);
+    }
 });
 
-
-// Función para deshabilitar el botón de copiar
 function deshabilitarBtnCopiar() {
     btnCopiar.disabled = true;
 }
 
-// Función para habilitar el botón de copiar
 function habilitarBtnCopiar() {
     btnCopiar.disabled = false;
 }
 
-
-// Establecer el foco en el textarea .text-area y deshabilitar el botón de copiar al cargar la página.
 window.addEventListener("load", function () {
     textArea.focus();
     deshabilitarBtnCopiar();
 });
-
-
-
