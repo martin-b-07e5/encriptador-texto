@@ -1,4 +1,4 @@
-/* Importar font (descomentado si es necesario) */
+/* Import font */
 /*@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');*/
 
 /*variables*/
@@ -45,7 +45,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 1%; /*top, right, bottom, left values - el último valor centra el header*/
+    padding: 1%;
     margin-right: 2rem;
     margin-left: 2rem;
     /*border: 1px solid red;*/
@@ -57,64 +57,21 @@ section {
     margin-left: 1rem;
 }
 
-/* Estilos para pantallas grandes (PC) */
-@media (min-width: 1200px) {
-    .text-area, .msg-encriptado {
-        width: 328px; /* Ancho por defecto */
-    }
+/*flex: 1; es un atajo para:
+  - flex-grow: 1;
+  - flex-shrink: 1;
+  - flex-basis: 0%;
 
-    .btn-encriptar, .btn-desencriptar {
-        width: 350px;
-    }
 
-    .btn-copiar {
-        width: 330px;
-    }
-}
+flex-grow: 1;: Esto significa que el elemento puede crecer para llenar el espacio disponible dentro del contenedor flexible.
+Si hay más de un elemento con flex-grow: 1;, todos crecerán proporcionalmente para llenar el espacio restante.
 
-/* Estilos para pantallas medianas (Ipad pro) */
-@media (min-width: 768px) and (max-width: 1199px) {
-    .text-area, .msg-encriptado {
-        width: 328px; /* Ancho por defecto */
-    }
+flex-shrink: 1;: Esto indica que el elemento puede reducirse si es necesario para caber dentro del contenedor.
+Si hay más de un elemento con flex-shrink: 1;, todos se encogerán proporcionalmente.
 
-    .section1 {
-        margin-left: 5rem;
-    }
-
-    .btn-encriptar, .btn-desencriptar {
-        width: 300px;
-    }
-
-    .btn-copiar {
-        width: 330px;
-    }
-}
-
-/* Estilos para pantallas pequeñas (iPhone y otros teléfonos) */
-@media (max-width: 767px) {
-    main {
-        flex-direction: column; /* Cambia la dirección del flex container a columna */
-        margin-left: 0;
-    }
-
-    section {
-        width: 100%; /* Asegura que la sección ocupe el 100% */
-    }
-
-    .text-area, .msg-encriptado {
-        width: 100%; /* Ancho del 100% en pantallas pequeñas */
-    }
-
-    .msg-encriptado {
-        height: auto; /* Ajustar la altura si es necesario */
-        margin-top: 30px;
-    }
-
-    .btn-encriptar, .btn-desencriptar, .btn-copiar {
-        width: 100%;
-    }
-}
+flex-basis: 0%;: Esto establece la base del tamaño del elemento antes de que se aplique cualquier espacio adicional o encogimiento.
+Un valor de 0% significa que el elemento no tiene un tamaño base predeterminado y se ajustará completamente según el espacio disponible en el contenedor.
+*/
 
 /* Estilo de las áreas de texto */
 .text-area, .msg-encriptado {
@@ -122,7 +79,6 @@ section {
     border: 0 solid; /* none */
 }
 
-/* Estilo del área de texto */
 .text-area {
     color: var(--dark-blue-300);
     text-transform: lowercase;
@@ -131,7 +87,6 @@ section {
     width: 100%;
 }
 
-/* Estilo del mensaje encriptado */
 .msg-encriptado {
     background-color: white;
     background-image: url(../images/muneco.png);
@@ -145,12 +100,10 @@ section {
     margin-right: 5%
 }
 
-/* Estilos de enfoque para las áreas de texto */
 .text-area:focus, .msg-encriptado:focus {
-    outline: 1px dashed var(--dark-blue-300); /* Añade un borde azul alrededor del área de texto cuando está enfocado */
+    outline: 1px dashed var(--dark-blue-300);
 }
 
-/* Estilo del placeholder */
 ::placeholder {
     color: var(--dark-blue-300);
     padding-top: 0.2rem;
@@ -171,7 +124,6 @@ section {
     margin-top: 18px;
 }
 
-
 /* Estilo de los botones */
 .btn-encriptar, .btn-desencriptar {
     border-radius: 1rem;
@@ -186,6 +138,8 @@ section {
     border: 1px solid var(--dark-blue-300);
     cursor: pointer;
     height: 67px;
+    width: 330px;
+    background-color: white;
 }
 
 .btn-encriptar {
@@ -199,13 +153,39 @@ section {
     margin-left: 30px;
 }
 
-.btn-copiar {
-    color: var(--dark-blue-300);
-    background-color: white;
-}
 
 .btn-copiar:disabled {
     background-color: var(--gray-200);
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+/* Estilos para pantallas grandes (PC) */
+@media (min-width: 1200px) {
+    .text-area, .msg-encriptado,
+    .btn-encriptar, .btn-desencriptar,
+    .btn-copiar {
+        display: inline-block; /* Asegura que el botón mantenga su tamaño según su contenido */
+        width: 100%;
+    }
+}
+
+/* Estilos para pantallas medianas y pequeñas (ipad, iPhone y otros teléfonos) */
+@media (max-width: 1199px) {
+    main {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .text-area, .msg-encriptado,
+    .btn-encriptar, .btn-desencriptar,
+    .btn-copiar {
+        display: inline-block; /* Asegura que el botón mantenga su tamaño según su contenido */
+        width: 100%;
+    }
+
+    .msg-encriptado {
+        height: auto;
+        margin-top: 3rem;
+    }
 }
